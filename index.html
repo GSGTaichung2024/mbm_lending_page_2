@@ -46,28 +46,52 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
-    const swiper = new Swiper('.swiper', {
-      // Optional parameters
-      direction: 'vertical',
-      loop: true,
+    document.addEventListener("DOMContentLoaded", function() {
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
 
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-      },
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
 
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
 
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
     });
   </script>
+
+  <style>
+    .swiper {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      max-height: 300px;
+    }
+
+    .swiper-slide{
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .swiper-button-prev, .swiper-button-next{
+      color: #fff;
+    }
+  </style>
 
 </head>
 
@@ -135,11 +159,15 @@
                     <img class="w-full h-full bg-cover" src="assets/067e9356034f3862cff8b37e3ed47fca.jpg" alt="Image 9">
                   </div>
                 </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
               </div>
 
             </div>
             <div class="list__wrap flex-1 overflow-hidden bg-white">
-              <div class="list__container flex items-start h-full overflow-hidden pt-[20px]" style="max-width: 400px; width: 100%; margin: 0 auto;">
+              <div class="list__container flex items-start h-full overflow-hidden pt-[20px]"
+                style="max-width: 400px; width: 100%; margin: 0 auto;">
 
                 <div class=" list__order flex-1 h-full pb-[10px] pl-[16px] pr-[10px] ">
                   <div style="transform: translate3d(0px, 0px, 0px);">
@@ -356,7 +384,7 @@
           <div class="max-w-[1200px] mx-auto px-[10px] flex items-center justify-center"><a
               href="https://liff.line.me/1645278921-kWRPP32q/?accountId=ateamsport" target="_blank"
               class="text-[14px] text-white mx-[16px] hover:text-[var(--theme-lighter-color)]">加入ATeamsports</a>
-              <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
+            <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
               class="text-[14px] text-white mx-[16px] hover:text-[var(--theme-lighter-color)]">官網立即註冊</a>
           </div>
       </footer>
