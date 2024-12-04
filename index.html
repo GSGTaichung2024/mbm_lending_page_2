@@ -36,7 +36,7 @@
   <link rel="apple-touch-icon" sizes="167x167" href="https://win55688.mbm88.net/themes/mt/appIcon-256.png?v=1.0.1">
   <link rel="apple-touch-icon" sizes="180x180" href="https://win55688.mbm88.net/themes/mt/appIcon-256.png?v=1.0.1">
   <link rel="apple-touch-icon" sizes="1024x1024" href="https://win55688.mbm88.net/themes/mt/appIcon-512.png?v=1.0.1">
-  <script type="module" crossorigin="" src="assets/index-159ff465.js"></script>
+
   <link rel="stylesheet" href="assets/index-539e3d5e.css">
   <link rel="stylesheet" type="text/css" href="assets/cm_style.css">
 
@@ -46,7 +46,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       const swiper = new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
@@ -72,10 +72,36 @@
           el: '.swiper-scrollbar',
         },
       });
+
+      // 視差滾動效果
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const offset = window.innerWidth > 768 ? 50 : 120;
+        document.body.style.backgroundPositionY = -(scrolled * 0.03) + offset + 'px';
+      });
     });
   </script>
 
   <style>
+    body {
+      background-image: url(assets/bg.jpg);
+      background-attachment: fixed;
+      background-size: 100% 110%;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+
+    }
+
+
+    @media (max-width: 768px) {
+      body {
+        background-size: cover;
+      }
+    }
+
     .swiper {
       width: 100%;
       max-width: 1000px;
@@ -83,311 +109,311 @@
       max-height: 300px;
     }
 
-    .swiper-slide{
+    .swiper-slide {
       border-radius: 10px;
       overflow: hidden;
     }
 
-    .swiper-button-prev, .swiper-button-next{
+    .swiper-button-prev,
+    .swiper-button-next {
       color: #fff;
+    }
+
+    /* 確保內容在背景上方 */
+    .app__wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 半透明遮罩效果 */
+    .app__wrap::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.5);
+      z-index: -1;
     }
   </style>
 
 </head>
 
 <body>
-  <div id="app" data-v-app="">
-    <div class="app__wrap absolute w-full flex flex-col">
-      <header data-v-c92985f1="" class="sticky z-20 top-0 bg-white"><!-- 手機版 -->
-        <div data-v-c92985f1="" class="flex items-center py-[2px] px-[10px] shadow-[0_1px_5px_0_rgba(0,0,0,0.3)]"
-          style="background: linear-gradient(to bottom, #fbf0e3, #fbf0e3 50%, var(--theme-lighter-color));"><button
-            data-v-c92985f1="" class="close_btn"><svg data-v-c92985f1="" xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1024 1024">
-              <path data-v-c92985f1="" fill="currentColor"
-                d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z">
-              </path>
-            </svg></button><img data-v-c92985f1="" src="assets/appIcon-64.png" class="w-[40px] h-[40px] ml-[10px]"
-            alt="">
-          <div data-v-c92985f1="" class="ml-[10px] py-[4px] pr-[10px] flex-[1]">
-            <div data-v-c92985f1="" class="font-bold text-base">MBM APP</div>
-            <div data-v-c92985f1="" class="text-xs text-[#000]">火速下載 ! 暢玩遊戲24H不間斷</div>
-          </div><a data-v-c92985f1="" href="https://win55688.mbm88.net/app" class=""><span data-v-c92985f1=""
-              class="block text-center text-xs text-white whitespace-nowrap max-w-[1/3] rounded-[5px] py-[5px] px-[10px] bg-[var(--theme-main-color)]">立即下載</span></a>
-        </div>
-        <div data-v-c92985f1="" class="flex items-center justify-between p-[5px]"><a data-v-c92985f1=""
-            aria-current="page" href="https://win55688.mbm88.net/"
-            class="router-link-active router-link-exact-active w-[135px]"><img data-v-c92985f1=""
-              src="assets/logo-2a17a7b3.gif" alt="logo"></a>
-          <a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=ateamsport" target="_blank"
-            class="ml-auto flex items-center"><span data-v-c92985f1="" class="text-xs mr-[5px]">Line：@ateamsports
-            </span>
-            <img src="assets/line.png" style="height: 30px; margin: 5px 0;" />
-          </a>
-        </div>
-      </header>
-      <div class="app__container max-w-none default__bg flex-1 overflow-auto">
-        <div class="home__wrap bg-white h-full">
-          <div class="home__container relative overflow-hidden h-full flex flex-col">
-            <div class="banner__container overflow-hidden mx-[10px] rounded-[10px]">
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/b542c7e5d0094cf03075c6bf586dc7c6.png" alt="Image 1">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/41fe427c5010cbfe9e841b34cf09bb5f.png" alt="Image 2">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/08fe838772d3b8354d50d943fec7b052.png" alt="Image 3">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/a26767a637807f87a879e2a1f03ad911.png" alt="Image 4">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/83181e6fae5be9bebe9e7ff803227a23.jpg" alt="Image 5">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/b281899c7ce893fc77f056bac3cfba08.jpg" alt="Image 6">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/9beb371e665ea2deda976e056943de0a.jpg" alt="Image 7">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/fc3cddfcf0b5de5947a6c30bea1b76a9.jpg" alt="Image 8">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="w-full h-full bg-cover" src="assets/067e9356034f3862cff8b37e3ed47fca.jpg" alt="Image 9">
-                  </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
+  <div class="app__wrap absolute w-full flex flex-col">
+    <header data-v-c92985f1="" class="sticky z-20 top-0 "><!-- 手機版 -->
+      <div data-v-c92985f1="" class="flex items-center py-[2px] px-[10px] shadow-[0_1px_5px_0_rgba(0,0,0,0.3)]"
+        style="background: linear-gradient(to bottom, #fbf0e3, #fbf0e3 50%, var(--theme-lighter-color));"><button
+          data-v-c92985f1="" class="close_btn"><svg data-v-c92985f1="" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1024 1024">
+            <path data-v-c92985f1="" fill="currentColor"
+              d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z">
+            </path>
+          </svg></button><img data-v-c92985f1="" src="assets/appIcon-64.png" class="w-[40px] h-[40px] ml-[10px]"
+          alt="">
+        <div data-v-c92985f1="" class="ml-[10px] py-[4px] pr-[10px] flex-[1]">
+          <div data-v-c92985f1="" class="font-bold text-base">MBM APP</div>
+          <div data-v-c92985f1="" class="text-xs text-[#000]">火速下載 ! 暢玩遊戲24H不間斷</div>
+        </div><a data-v-c92985f1="" href="https://win55688.mbm88.net/app" class=""><span data-v-c92985f1=""
+            class="block text-center text-xs text-white whitespace-nowrap max-w-[1/3] rounded-[5px] py-[5px] px-[10px] bg-[var(--theme-main-color)]">立即下載</span></a>
+      </div>
+      <div data-v-c92985f1="" class="flex items-center justify-between p-[5px]"><a data-v-c92985f1=""
+          aria-current="page" href="https://win55688.mbm88.net/"
+          class="router-link-active router-link-exact-active w-[135px]"><img data-v-c92985f1=""
+            src="assets/logo-2a17a7b3.gif" alt="logo"></a>
+        <a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=ateamsport" target="_blank"
+          class="ml-auto flex items-center"><span data-v-c92985f1="" class="text-xs mr-[5px]">Line：@ateamsports
+          </span>
+          <img src="assets/line.png" style="height: 30px; margin: 5px 0;" />
+        </a>
+      </div>
+    </header>
 
+    <div class="container" style="max-width: 400px; margin: 20px auto;">
+      <img src="assets/header_bg.jpg" class="w-full" alt="banner">
+    </div>
+    <a href="https://win55688.mbm88.net/login?id=register" target="_blank" <div
+      class="app__container max-w-none  flex-1 overflow-auto">
+      <div class="home__wrap  h-full">
+        <div class="home__container relative overflow-hidden h-full flex flex-col">
+          <div class="banner__container overflow-hidden mx-[10px] rounded-[10px]">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="w-full h-full bg-cover" src="assets/08fe838772d3b8354d50d943fec7b052.png" alt="Image 1">
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full bg-cover" src="assets/9beb371e665ea2deda976e056943de0a.png" alt="Image 2">
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full bg-cover" src="assets/41fe427c5010cbfe9e841b34cf09bb5f.png" alt="Image 3">
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full bg-cover" src="assets/067e9356034f3862cff8b37e3ed47fca.png" alt="Image 4">
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full bg-cover" src="assets/83181e6fae5be9bebe9e7ff803227a23.png" alt="Image 5">
+                </div>
+                <div class="swiper-slide">
+                  <img class="w-full h-full bg-cover" src="assets/a26767a637807f87a879e2a1f03ad911.png" alt="Image 6">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
             </div>
-            <div class="list__wrap flex-1 overflow-hidden bg-white">
-              <div class="list__container flex items-start h-full overflow-hidden pt-[20px]"
-                style="max-width: 400px; width: 100%; margin: 0 auto;">
+          </div>
+    </a>
+    <div class="list__wrap flex-1 overflow-hidden ">
+      <div class="list__container flex items-start h-full overflow-hidden pt-[20px]"
+        style="max-width: 400px; width: 100%; margin: 0 auto;">
 
-                <div class=" list__order flex-1 h-full pb-[10px] pl-[16px] pr-[10px] ">
-                  <div style="transform: translate3d(0px, 0px, 0px);">
-                    <h2 class="font-bold text-center mb-[20px]" style="font-size: 35px;"><span
-                        class="text-[#4d4d4d]">現在加入，不走彎道<br></span><span
-                        class="text-[var(--theme-main-color)]">直接上手</span></h2>
-                    <article class="leading-10 text-center text-[20px] my-[20px] max-w-[880px]">加入即享：</article>
+        <div class=" list__order flex-1 h-full pb-[10px] pl-[16px] pr-[10px] ">
+          <div style="transform: translate3d(0px, 0px, 0px);">
+            <h2 class="font-bold text-center mb-[20px]" style="font-size: 35px;"><span
+                class="text-[#4d4d4d]">現在加入，不走彎道<br></span><span class="text-[var(--theme-main-color)]">直接上手</span>
+            </h2>
+            <article class="leading-10 text-center text-[20px] my-[20px] max-w-[880px]">加入即享：</article>
 
-                    <div class=" !h-auto grid grid-cols-2 gap-[10px] -active" style="margin-bottom: 10px;">
-                      <div class="flex flex-col items-center relative col-span-2"><!--v-if-->
-                        <div
-                          class="bg-gradient-to-b from-[#ffa662] to-[#fa6800] cursor-pointer overflow-hidden rounded-[18px] w-full">
-                          <img class="block" src="assets/live-mtli-53cd4ca6.jpg" alt="MT">
-                        </div>
-                        <div class="text-[#4d4d4d] leading-none text-[14px] text-center mt-[6px] font-bold">
-                          全站0.8%超高反水<br>
-                        </div>
-                      </div>
-                    </div>
-                    <div class=" !h-auto grid grid-cols-2 gap-[10px] -next" style="margin-bottom: 10px;">
-                      <div class="flex flex-col items-center relative col-span-2"><!--v-if-->
-                        <div
-                          class="bg-gradient-to-b from-[#ffa662] to-[#fa6800] cursor-pointer overflow-hidden rounded-[18px] w-full">
-                          <img class="block" src="assets/slot-rg-09b5de8d.jpg" alt="好路">
-                        </div>
-                        <div class="text-[#4d4d4d] leading-none text-[14px] text-center mt-[6px] font-bold">續存狂歡<br>
-                        </div>
-                      </div>
-                    </div>
-                    <div class=" !h-auto grid grid-cols-2 gap-[10px]" style="margin-bottom: 10px;">
-                      <div class="flex flex-col items-center relative col-span-2"><!--v-if-->
-                        <div
-                          class="bg-gradient-to-b from-[#ffa662] to-[#fa6800] cursor-pointer overflow-hidden rounded-[18px] w-full">
-                          <img class="block" src="assets/live-mtli-53cd4ca6.jpg" alt="MT">
-                        </div>
-                        <div class="text-[#4d4d4d] leading-none text-[14px] text-center mt-[6px] font-bold">首存1000起<br>
-                        </div>
-                      </div>
-                    </div>
-
-                    <h2 class="font-bold text-center" style="font-size: 35px; margin-top: 50px; margin-bottom: 0px;">
-                      <span class="text-[#4d4d4d]">打破VIP制度<br></span><span
-                        class="text-[var(--theme-main-color)]">不被等級限制的致富之路</span>
-                    </h2>
-                    <article class="leading-10 text-center text-[20px] my-[20px] max-w-[880px]">簡單步驟，領取所有優惠</article>
-
-
-                    <div class=" !h-auto grid grid-cols-2 gap-[10px]" style="margin-bottom: 10px;">
-
-
-                      <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
-                        class="flex flex-col items-center relative">
-                        <div
-                          class="bg-gradient-to-b from-[#ffa662] to-[#fa6800] cursor-pointer overflow-hidden rounded-[18px] w-full">
-                          <img class="block" src="assets/sport-super-e4324db0.jpg" alt="SUPER">
-                        </div>
-                        <div class="text-[#4d4d4d] leading-none text-[14px] text-center mt-[6px] font-bold">1.
-                          點擊下方【立即註冊】按鈕<br>
-                        </div>
-                      </a>
-                      <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
-                        class="flex flex-col items-center relative">
-                        <div
-                          class="bg-gradient-to-b from-[#ffa662] to-[#fa6800] cursor-pointer overflow-hidden rounded-[18px] w-full">
-                          <img class="block" src="assets/sport-fbsp-5123228f.jpg" alt="FB">
-                        </div>
-                        <div class="text-[#4d4d4d] leading-none text-[14px] text-center mt-[6px] font-bold">2.
-                          前往【MBM娛樂城】完成會員註冊<br>
-                        </div>
-                      </a>
-                      <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
-                        class="flex flex-col items-center relative">
-                        <div
-                          class="bg-gradient-to-b from-[#ffa662] to-[#fa6800] cursor-pointer overflow-hidden rounded-[18px] w-full">
-                          <img class="block" src="assets/sport-afb-654f0a8b.jpg" alt="AFB">
-                        </div>
-                        <div class="text-[#4d4d4d] leading-none text-[14px] text-center mt-[6px] font-bold">3.
-                          於官網加入【Line】官方帳號<br>
-                        </div>
-                      </a>
-                      <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
-                        class="flex flex-col items-center relative">
-                        <div
-                          class="bg-gradient-to-b from-[#ffa662] to-[#fa6800] cursor-pointer overflow-hidden rounded-[18px] w-full">
-                          <img class="block" src="assets/sport-sxb-bb7c9472.jpg" alt="WG">
-                        </div>
-                        <div class="text-[#4d4d4d] leading-none text-[14px] text-center mt-[6px] font-bold">4.
-                          綁定會員資料，領取官方福利<br>
-                        </div>
-                      </a>
-                      <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
-                        class="flex flex-col items-center relative">
-                        <div
-                          class="bg-gradient-to-b from-[#ffa662] to-[#fa6800] cursor-pointer overflow-hidden rounded-[18px] w-full">
-                          <img class="block" src="assets/sport-sxb-bb7c9472.jpg" alt="WG">
-                        </div>
-                        <div class="text-[#4d4d4d] leading-none text-[14px] text-center mt-[6px] font-bold">5.
-                          加入【@Ateamsports】，官方Line帳號<br>
-                        </div>
-                      </a>
-                    </div>
-
-                    <a class="flex w-full justify-center" href="https://win55688.mbm88.net/login?id=register"
-                      target="_blank">
-                      <div class="bg-white rounded-[20px] shadow-lg flex flex-col items-center mx-[10px] p-[20px]"
-                        style="width: 100%;">
-                        <span class="text-[22px] my-[10px] font-bold">開始遊玩</span>
-                      </div>
-                    </a>
-
-
-                    <h2 class="font-bold text-center" style="font-size: 35px; margin-top: 50px; margin-bottom: 0px;">
-                      <span class="text-[#4d4d4d]">加入AteamSports<br></span><span
-                        class="text-[var(--theme-main-color)]">優勢分析：</span>
-                    </h2>
-                    <div class="flex flex-wrap justify-center">
-                      <div class="flex w-full justify-center mb-[40px]">
-                        <div class="bg-white rounded-[20px] shadow-lg flex flex-col items-center mx-[10px] p-[20px]"
-                          style="width: 50%;">
-                          <img class="w-[125px]" src="https://win55688.mbm88.net/assets/advantage-no1-4640f57f.png"
-                            alt="信譽第一"><br><span style="text-align: center;">群組專業賽事分析</span>
-                        </div>
-                        <div class="bg-white rounded-[20px] shadow-lg flex flex-col items-center mx-[10px] p-[20px]"
-                          style="width: 50%;">
-                          <img class="w-[125px]" src="https://win55688.mbm88.net/assets/advantage-safety-18b1a629.png"
-                            alt="帳戶安全"><br><span style="text-align: center;">各項電子遊戲詳細解說</span>
-                        </div>
-                      </div>
-                      <div class="flex w-full justify-center">
-                        <div class="bg-white rounded-[20px] shadow-lg flex flex-col items-center mx-[10px] p-[20px]"
-                          style="width: 50%;">
-                          <img class="w-[125px]" src="https://win55688.mbm88.net/assets/advantage-no1-4640f57f.png"
-                            alt="信譽第一"><br><span style="text-align: center;">最新電子訊號秘笈</span>
-                        </div>
-                        <div class="bg-white rounded-[20px] shadow-lg flex flex-col items-center mx-[10px] p-[20px]"
-                          style="width: 50%;">
-                          <img class="w-[125px]" src="https://win55688.mbm88.net/assets/advantage-safety-18b1a629.png"
-                            alt="帳戶安全"><br><span style="text-align: center;">好平台優先推薦<br>一手消息</span>
-                        </div>
-                      </div>
-                      <div class="flex w-full justify-center">
-                        <div class="flex flex-col items-center p-[20px]" style="width: 100%;">
-                          <span class="text-[22px] my-[10px] font-bold">完全免費，永不收費</span>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=ateamsport" target="_blank"
-                      class="flex w-full justify-center">
-                      <div class="bg-white rounded-[20px] shadow-lg flex flex-col items-center mx-[10px] p-[20px]"
-                        style="width: 100%; margin-bottom: 50px;">
-                        <span class="text-[22px] my-[10px] font-bold">立即加入</span>
-                      </div>
-                    </a>
-
-                  </div><!----><!----><!---->
+            <div class=" !h-auto grid grid-cols-2 gap-[10px] -active" style="margin-bottom: 10px;">
+              <div class="flex flex-col items-center relative col-span-2"><!--v-if-->
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/card_01.png" alt="全站0.8%超高反水">
                 </div>
               </div>
-            </div><!-- 溫馨小提醒 --><!--teleport start--><!--teleport end-->
-          </div>
-        </div>
-      </div><!--v-if--><!--teleport start--><!--teleport end-->
+              <br>
+            </div>
+            <div class=" !h-auto grid grid-cols-2 gap-[10px] -next" style="margin-bottom: 10px;">
+              <div class="flex flex-col items-center relative col-span-2"><!--v-if-->
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/card_02.png" alt="續存狂歡">
+                </div>
+              </div>
+              <br>
+            </div>
+            <div class=" !h-auto grid grid-cols-2 gap-[10px]" style="margin-bottom: 10px;">
+              <div class="flex flex-col items-center relative col-span-2"><!--v-if-->
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/card_03.png" alt="加碼再送">
+                </div>
+              </div>
+            </div>
 
-      <footer class="bg-gradient-to-b from-[#666] to-[#000] py-[16px]">
+            <h2 class="font-bold text-center" style="font-size: 35px; margin-top: 50px; margin-bottom: 0px;">
+              <span class="text-[#4d4d4d]">打破VIP制度<br></span><span
+                class="text-[var(--theme-main-color)]">不被等級限制的<br>致富之路</span>
+            </h2>
+            <article class="leading-10 text-center text-[20px] my-[20px] max-w-[880px]">簡單步驟，領取所有優惠</article>
 
-        <div class="footer__container max-w-[1200px] mx-auto px-[10px]">
-          <div class="flex flex-wrap justify-center mt-[20px]">
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="sa"
-                src="assets/logo/sa.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="super"
-                src="assets/logo/super.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="apl"
-                src="assets/logo/apl.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="dbg"
-                src="assets/logo/dbg.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="gr"
-                src="assets/logo/gr.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="bng"
-                src="assets/logo/bng.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="zw"
-                src="assets/logo/zw.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="zebra"
-                src="assets/logo/zebra.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="dg"
-                src="assets/logo/dg.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="gm"
-                src="assets/logo/gm.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="allbet"
-                src="assets/logo/allbet.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="xibo"
-                src="assets/logo/xibo.png"></div>
-            <div class="p-[5px]"><img
-                class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="rsg"
-                src="assets/logo/rsg.png"></div>
-          </div>
-          <div class="text-[#666] text-[12px] text-center pt-[10px] pb-[4px]"> Copyright© 2024-2025 All Rights Reserved
-          </div>
-        </div>
 
-        <div class="footer__top border-b-[1px] border-b-[#000] pb-[16px]">
-          <div class="max-w-[1200px] mx-auto px-[10px] flex items-center justify-center"><a
-              href="https://liff.line.me/1645278921-kWRPP32q/?accountId=ateamsport" target="_blank"
-              class="text-[14px] text-white mx-[16px] hover:text-[var(--theme-lighter-color)]">加入ATeamsports</a>
+            <div class=" !h-auto grid grid-cols-1 gap-[10px]" style="margin-bottom: 10px;">
+
+
+              <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
+                class="flex flex-col items-center relative">
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/button_01.png" alt="點擊下方【立即註冊】按鈕	">
+                </div>
+              </a>
+              <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
+                class="flex flex-col items-center relative">
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/button_02.png" alt="前往【MBM娛樂城】完成會員註冊">
+                </div>
+              </a>
+              <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
+                class="flex flex-col items-center relative">
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/button_03.png" alt="於官網加入【Line】官方帳號">
+                </div>
+              </a>
+              <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
+                class="flex flex-col items-center relative">
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/button_04.png" alt="綁定會員資料，領取官方福利">
+                </div>
+              </a>
+              <a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=ateamsport" target="_blank"
+                class="flex flex-col items-center relative">
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/button_05.png" alt="加入【@Ateamsports】官方Line帳號">
+                </div>
+              </a>
+
+              <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
+                class="flex flex-col items-center relative">
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/button_06.png" alt="開始遊玩！">
+                </div>
+              </a>
+            </div>
+
+
+            <h2 class="font-bold text-center" style="font-size: 35px; margin-top: 50px; margin-bottom: 0px;">
+              <span class="text-[#4d4d4d]">加入AteamSports<br></span><span
+                class="text-[var(--theme-main-color)]">優勢分析</span>
+            </h2>
+            <div class="flex flex-wrap justify-center">
+              <div class="flex w-full justify-center mb-[40px]">
+                <div class=" rounded-[20px] shadow-lg bg-white flex flex-col items-center mx-[10px] p-[20px]"
+                  style="width: 50%;">
+                  <img class="w-[125px]" src="assets/icon_01.png" alt="信譽第一"><br><span
+                    style="text-align: center;">群組專業賽事分析</span>
+                </div>
+                <div class=" rounded-[20px] shadow-lg bg-white flex flex-col items-center mx-[10px] p-[20px]"
+                  style="width: 50%;">
+                  <img class="w-[125px]" src="assets/icon_02.png" alt="帳戶安全"><br><span
+                    style="text-align: center;">各項電子遊戲詳細解說</span>
+                </div>
+              </div>
+              <div class="flex w-full justify-center">
+                <div class=" rounded-[20px] shadow-lg bg-white flex flex-col items-center mx-[10px] p-[20px]"
+                  style="width: 50%;">
+                  <img class="w-[125px]" src="assets/icon_03.png" alt="信譽第一"><br><span
+                    style="text-align: center;">最新電子訊號秘笈</span>
+                </div>
+                <div class=" rounded-[20px] shadow-lg bg-white flex flex-col items-center mx-[10px] p-[20px]"
+                  style="width: 50%;">
+                  <img class="w-[125px]" src="assets/icon_04.png" alt="帳戶安全"><br><span
+                    style="text-align: center;">好平台優先推薦<br>一手消息</span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=ateamsport" target="_blank"
+              class="flex w-full justify-center">
+              <div class=" rounded-[20px] bg-white shadow-lg flex flex-col items-center mx-[10px] p-[20px]"
+                style="width: 100%; margin-bottom: 50px;">
+                <img class="w-[250px]" src="assets/icon_05.png" alt="完全免費，永不收費"><span
+                  class="text-[22px] my-[10px] font-bold">完全免費，永不收費</span>
+              </div>
+            </a>
+
             <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
-              class="text-[14px] text-white mx-[16px] hover:text-[var(--theme-lighter-color)]">官網立即註冊</a>
+              class="flex flex-col items-center relative">
+              <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                <img class="block" src="assets/button_07.png" alt="立即加入">
+              </div>
+            </a>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class=" !h-auto grid grid-cols-2 gap-[10px]" style="position: fixed; bottom: 0; width: 100%;">
+
+
+              <a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=ateamsport" target="_blank"
+                class="flex flex-col items-center relative">
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/button_08.png" alt="加入ATeamsports">
+                </div>
+              </a>
+              <a href="https://win55688.mbm88.net/login?id=register" target="_blank"
+                class="flex flex-col items-center relative">
+                <div class="bg-gradient-to-b cursor-pointer overflow-hidden rounded-[18px] w-full">
+                  <img class="block" src="assets/button_09.png" alt="官網立即註冊">
+                </div>
+              </a>
+
+            </div><!----><!----><!---->
           </div>
-      </footer>
+        </div>
+      </div><!-- 溫馨小提醒 --><!--teleport start--><!--teleport end-->
+    </div>
+  </div>
+
+  <footer class="bg-gradient-to-b from-[#666] to-[#000] py-[16px]">
+
+    <div class="footer__container max-w-[1200px] mx-auto px-[10px]">
+      <div class="flex flex-wrap justify-center mt-[20px]">
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="sa"
+            src="assets/logo/sa.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="super"
+            src="assets/logo/super.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="apl"
+            src="assets/logo/apl.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="dbg"
+            src="assets/logo/dbg.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="gr"
+            src="assets/logo/gr.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="bng"
+            src="assets/logo/bng.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="zw"
+            src="assets/logo/zw.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="zebra"
+            src="assets/logo/zebra.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="dg"
+            src="assets/logo/dg.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="gm"
+            src="assets/logo/gm.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="allbet"
+            src="assets/logo/allbet.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="xibo"
+            src="assets/logo/xibo.png"></div>
+        <div class="p-[5px]"><img
+            class="w-[45px] opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all" alt="rsg"
+            src="assets/logo/rsg.png"></div>
+      </div>
+      <div class="text-[#666] text-[12px] text-center pt-[10px] pb-[4px]"> Copyright© 2024-2025 All Rights Reserved
+      </div>
+    </div>
+
+  </footer>
 
 </body>
 
